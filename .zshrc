@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Adds snap command
-emulate sh -c 'source /etc/profile'
+#emulate sh -c 'source /etc/profile'
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/rasmus/.oh-my-zsh"
