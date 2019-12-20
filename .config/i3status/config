@@ -1,0 +1,66 @@
+general {
+        colors = true
+        interval = 5
+}
+
+#order += "ipv6"
+#order += "wireless _first_"
+order += "read_file ipv4"
+#order += "ethernet _first_"
+#order += "battery all"
+order += "disk /"
+order += "disk /media/rasmus/Speedy"
+order += "disk /media/Primary"
+order += "disk /media/Secondary"
+order += "load"
+order += "memory"
+order += "tztime local"
+
+wireless _first_ {
+        format_up = "W: (%quality at %essid) %ip"
+        format_down = "W: down"
+}
+
+ethernet _first_ {
+        format_up = "E: %ip (%speed)"
+        format_down = "E: down"
+}
+
+battery all {
+        format = "%status %percentage %remaining"
+}
+
+disk "/" {
+	format = "/ %avail"
+}
+
+disk "/media/rasmus/Speedy" {
+	format = "⚡%avail"
+}
+
+disk "/media/Primary" {
+	format = "1: %avail"
+}
+
+disk "/media/Secondary" {
+	format = "2: %avail"
+}
+
+load {
+        format = "%1min %5min %15min"
+}
+
+memory {
+        format = "%used/%total"
+        threshold_degraded = "1G"
+        format_degraded = "MEMORY < %available"
+}
+
+tztime local {
+        format = "%Y-%m-%d %H:%M:%S"
+}
+
+read_file ipv4 {
+	format = "%content"
+	path = "/home/rasmus/.ipv4"	
+}
