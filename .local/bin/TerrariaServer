@@ -1,0 +1,5 @@
+#!/bin/bash
+
+pushd /media/rasmus/Speedy/Games-linux/steamapps/common/Terraria/
+./TerrariaServer -config $HOME/.terraria-config
+popd

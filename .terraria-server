@@ -1,0 +1,4 @@
+world=/home/rasmus/.local/share/Terraria/Worlds/DungeonWorld.wld
+maxplayers=8
+port=7777
+password=
