@@ -116,25 +116,4 @@ if ! shopt -oq posix; then
   fi
 fi
 
-
-
-# CUSTOM STUFF
-
-#nvidia-settings --assign CurrentMetaMode="nvidia-auto-select +0+0 { ForceFullCompositionPipeline = On }"
-
-#/home/rasmus/.local/bin/night-light.sh true
-
-export TERM=xterm
-
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="/home/rasmus/.sdkman"
-[[ -s "/home/rasmus/.sdkman/bin/sdkman-init.sh" ]] && source "/home/rasmus/.sdkman/bin/sdkman-init.sh"
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-tsp curl -s http://ipv4.icanhazip.com/ -o .ipv4 > /dev/null
-
-export PATH=$HOME/.bin:$PATH
-source .aliases
+source .rc_local

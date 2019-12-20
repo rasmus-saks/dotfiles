@@ -1,5 +1,6 @@
 #!/bin/bash
 
 pushd /media/rasmus/Speedy/Games-linux/steamapps/common/Terraria/
+TERM=xterm
 ./TerrariaServer -config $HOME/.terraria-config
 popd
