@@ -1,0 +1,15 @@
+#!/bin/bash
+
+if [[ -n $1 ]]; then
+  dconf write /org/gnome/settings-daemon/plugins/color/night-light-enabled $1
+  exit 0
+fi
+
+CURRENT=$(dconf read /org/gnome/settings-daemon/plugins/color/night-light-enabled)
+
+if [[ $CURRENT == "true" ]]; then
+  NEW="false"
+else
+  NEW="true"
+fi
+dconf write /org/gnome/settings-daemon/plugins/color/night-light-enabled $NEW

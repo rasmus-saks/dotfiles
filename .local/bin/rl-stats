@@ -1,0 +1,3 @@
+#!/bin/bash
+
+xclip -o -selection clipboard | sed -r "s;https://steamcommunity.com/(id|profiles)/(.*);https://rocketleague.tracker.network/profile/steam/\2;g" | xargs xdg-open

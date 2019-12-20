@@ -1,0 +1,12 @@
+#!/bin/bash
+
+FILE=/home/rasmus/spotify.txt
+
+touch $FILE
+while true; do
+  eval $(sp eval)
+  echo "$SPOTIFY_ARTIST - $SPOTIFY_TITLE" > $FILE
+  echo "Now playing: $SPOTIFY_ARTIST - $SPOTIFY_TITLE"
+  sleep 1
+done
+rm $FILE
