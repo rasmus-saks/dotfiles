@@ -2,6 +2,6 @@
 Requires
 * i3
 * zsh, oh-my-zsh
-* polyline
+* polybar
 * compton (picom)
 * powerlevel9k + nerd-fonts
