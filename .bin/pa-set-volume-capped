@@ -1,0 +1,13 @@
+#!/bin/bash
+MAXVOL=150
+SINK=$1
+DIFFVOL=$2
+CURVOL=$(pactl list sinks | grep '^[[:space:]]Volume:' | head -n $(( $SINK + 1 )) | tail -n 1 | sed -e 's,.* \([0-9][0-9]*\)%.*,\1,' )
+NEWVOL=$(($CURVOL + ${DIFFVOL%\%}))
+
+if [[ $NEWVOL -le $MAXVOL ]]
+then
+    pactl set-sink-volume $SINK $DIFFVOL
+else
+	pactl set-sink-volume $SINK $MAXVOL%
+fi
