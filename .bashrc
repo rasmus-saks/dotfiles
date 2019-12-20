@@ -135,4 +135,6 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 tsp curl -s http://ipv4.icanhazip.com/ -o .ipv4 > /dev/null
-alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+
+export PATH=$HOME/.bin:$PATH
+source .aliases
