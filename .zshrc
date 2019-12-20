@@ -71,13 +71,14 @@ ZSH_THEME="powerlevel9k/powerlevel9k"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git zsh-completions)
 
 # Has to be before the 'source'
 POWERLEVEL9K_MODE='nerdfont-complete'
 
 source $ZSH/oh-my-zsh.sh
 
+setopt complete_aliases
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -105,7 +106,8 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 source .rc_local
+source .config/powerlevel9k
 
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=()
 

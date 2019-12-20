@@ -25,8 +25,10 @@ foreground = #ccffffff
 foreground-alt = #555
 primary = ${colors.foreground}
 secondary = ${colors.foreground}
-alert = ${colors.foreground}
-accent = ${colors.foreground}
+ok = #55aa55
+warn = #f5a70a
+alert = #ff5555
+
 
 [bar/bar1]
 ;monitor = ${env:MONITOR:HDMI-1}
@@ -47,17 +49,17 @@ line-color = #f00
 border-size = 0
 border-color = #00000000
 
-padding-left = 0
-padding-right = 0
+padding-left = 1
+padding-right = 1
 
 module-margin-left = 1
 module-margin-right = 1
 
-font-0 = FiraCode Nerd Font Mono:style=Regular:pixelsize=8;0
+font-0 = Hack Nerd Font:style=Regular:size=8
 font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-2 = siji:pixelsize=10;1
 
-modules-left = i3
+modules-left = powermenu i3
 modules-center = mpd
 modules-right = sp-nowplaying pulseaudio memory cpu wlan battery date
 
@@ -83,20 +85,20 @@ cursor-scroll = ns-resize
 type = internal/pulseaudio
 
 format-volume = <label-volume> <bar-volume>
-label-volume = VOL %percentage%%
+label-volume =  %percentage%%
 label-volume-foreground = ${root.foreground}
 
-label-muted = 🔇 muted
+label-muted = ﱝ muted
 label-muted-foreground = #666
 
 bar-volume-width = 10
-bar-volume-foreground-0 = #55aa55
-bar-volume-foreground-1 = #55aa55
-bar-volume-foreground-2 = #55aa55
-bar-volume-foreground-3 = #55aa55
-bar-volume-foreground-4 = #55aa55
-bar-volume-foreground-5 = #f5a70a
-bar-volume-foreground-6 = #ff5555
+bar-volume-foreground-0 = ${colors.ok}
+bar-volume-foreground-1 = ${colors.ok}
+bar-volume-foreground-2 = ${colors.ok}
+bar-volume-foreground-3 = ${colors.ok}
+bar-volume-foreground-4 = ${colors.ok}
+bar-volume-foreground-5 = ${colors.warn}
+bar-volume-foreground-6 = ${colors.alert}
 bar-volume-gradient = false
 bar-volume-indicator = |
 bar-volume-indicator-font = 2
@@ -112,25 +114,27 @@ format = <label-state> <label-mode>
 index-sort = true
 wrapping-scroll = false
 
+strip-wsnumbers = true
+
 ; Only show workspaces on the same output as the bar
 ;pin-workspaces = true
 
-label-mode-padding = 2
+label-mode-padding = 1
 label-mode-foreground = #000
-label-mode-background = ${colors.primary}
+label-mode-background = ${colors.background-alt}
 
 ; focused = Active workspace on focused monitor
-label-focused = %index%
+label-focused = %name%
 label-focused-background = ${colors.background-alt}
 label-focused-underline= ${colors.primary}
 label-focused-padding = 2
 
 ; unfocused = Inactive workspace on any monitor
 label-unfocused = %index%
-label-unfocused-padding = 2
+label-unfocused-padding = 1
 
 ; visible = Active workspace on unfocused monitor
-label-visible = %index%
+label-visible = %name%
 label-visible-background = ${self.label-focused-background}
 label-visible-underline = ${self.label-focused-underline}
 label-visible-padding = ${self.label-focused-padding}
@@ -147,47 +151,44 @@ label-urgent-padding = 2
 [module/cpu]
 type = internal/cpu
 interval = 2
-format-prefix = " "
-format-prefix-foreground = ${colors.foreground-alt}
-;format-underline = ${colors.accent}
 label = CPU
 format = <label> <ramp-coreload>
 
 ramp-coreload-0 = ▁
 ramp-coreload-0-font = 2
-ramp-coreload-0-foreground = #aaff77
+ramp-coreload-0-foreground = ${colors.ok}
 ramp-coreload-1 = ▂
 ramp-coreload-1-font = 2
-ramp-coreload-1-foreground = #aaff77
+ramp-coreload-1-foreground = ${colors.ok}
 ramp-coreload-2 = ▃
 ramp-coreload-2-font = 2
-ramp-coreload-2-foreground = #aaff77
+ramp-coreload-2-foreground = ${colors.ok}
 ramp-coreload-3 = ▄
 ramp-coreload-3-font = 2
-ramp-coreload-3-foreground = #aaff77
+ramp-coreload-3-foreground = ${colors.ok}
 ramp-coreload-4 = ▅
 ramp-coreload-4-font = 2
-ramp-coreload-4-foreground = #fba922
+ramp-coreload-4-foreground = ${colors.warn}
 ramp-coreload-5 = ▆
 ramp-coreload-5-font = 2
-ramp-coreload-5-foreground = #fba922
+ramp-coreload-5-foreground = ${colors.warn}
 ramp-coreload-6 = ▇
 ramp-coreload-6-font = 2
-ramp-coreload-6-foreground = #ff5555
+ramp-coreload-6-foreground = ${colors.alert}
 ramp-coreload-7 = █
 ramp-coreload-7-font = 2
-ramp-coreload-7-foreground = #ff5555
+ramp-coreload-7-foreground = ${colors.alert}
 
 [module/memory]
 type = internal/memory
 format = <label> <bar-used>
-label = RAM
+label = RAM %gb_used%/%gb_total%
 
-bar-used-width = 30
-bar-used-foreground-0 = #aaff77
-bar-used-foreground-1 = #aaff77
-bar-used-foreground-2 = #fba922
-bar-used-foreground-3 = #ff5555
+bar-used-width = 10
+bar-used-foreground-0 = ${colors.ok}
+bar-used-foreground-1 = ${colors.ok}
+bar-used-foreground-2 = ${colors.warn}
+bar-used-foreground-3 = ${colors.alert}
 bar-used-indicator = |
 bar-used-indicator-font = 6
 bar-used-indicator-foreground = #ff
@@ -237,7 +238,7 @@ format-disconnected =
 
 [module/date]
 type = internal/date
-date =    %%{F#99}%Y-%m-%d%%{F-}  %%{F#fff}%H:%M%%{F-}
+date =   %%{F#99}%Y-%m-%d%%{F-}  %%{F#fff}%H:%M%%{F-}
 date-alt = %%{F#fff}%A, %d %B %Y  %%{F#fff}%H:%M%%{F#666}:%%{F#fba922}%S%%{F-}
 
 [module/sp-nowplaying]
@@ -303,9 +304,9 @@ expand-right = true
 
 format-spacing = 1
 
-label-open = Power
+label-open = ⏻
 label-open-foreground = ${colors.secondary}
-label-close =  cancel
+label-close = 
 label-close-foreground = ${colors.secondary}
 label-separator = |
 label-separator-foreground = ${colors.foreground-alt}
