@@ -117,3 +117,5 @@ if ! shopt -oq posix; then
 fi
 
 source .rc_local
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash

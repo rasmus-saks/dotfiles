@@ -243,7 +243,7 @@ date-alt = %%{F#fff}%A, %d %B %Y  %%{F#fff}%H:%M%%{F#666}:%%{F#fba922}%S%%{F-}
 
 [module/sp-nowplaying]
 type = custom/script
-exec = cat $HOME/.spotify
+exec = playerctl metadata --format "{{ artist }} - {{ title }}"
 
 [module/battery]
 type = internal/battery

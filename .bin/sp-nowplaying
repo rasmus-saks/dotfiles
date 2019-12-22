@@ -4,9 +4,9 @@ FILE=$HOME/.spotify
 
 touch $FILE
 while true; do
-  eval $(sp eval)
-  echo "$SPOTIFY_ARTIST - $SPOTIFY_TITLE" > $FILE
-  echo "Now playing: $SPOTIFY_ARTIST - $SPOTIFY_TITLE"
+  NOW_PLAYING=$(playerctl metadata --format "{{ artist }} - {{ title }}")
+  echo $NOW_PLAYING > $FILE
+  echo "Now playing: $NOW_PLAYING"
   sleep 1
 done
 rm $FILE

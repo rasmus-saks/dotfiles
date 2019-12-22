@@ -188,6 +188,7 @@ hide_edge_borders both
 default_border pixel 1
 
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+exec_always --no-startup-id numlockx on
 
 # Autostart applications
 exec --no-startup-id discord
@@ -199,6 +200,7 @@ exec --no-startup-id feh --bg-scale ~/wallpaper.png
 exec --no-startup-id sp-nowplaying
 exec --no-startup-id ckb-next -b
 
+
 exec compton
 
 # Media player controls
@@ -209,6 +211,7 @@ bindsym XF86AudioRaiseVolume exec --no-startup-id pa-set-volume-capped 1 +5%
 bindsym XF86AudioLowerVolume exec --no-startup-id pa-set-volume-capped 1 -5%
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 1 toggle
 
+bindsym Mod1+Tab workspace back_and_forth
 bindsym $mod+Tab exec rofi -show window
 
 bindsym Shift+Print exec flameshot gui
@@ -216,6 +219,8 @@ bindsym Mod1+q scratchpad show
 
 for_window [class="discord"] move to workspace $ws2
 for_window [class="Steam"] move to workspace $ws2
-for_window [class="Steam" title="Steam - News"] floating enable
+for_window [class="Steam"] floating enable
+for_window [class="Steam" title="^Steam$"] floating disable
 for_window [class="RocketLeague"] move to workspace $ws3
 for_window [class="Spotify"] move to scratchpad
+for_window [class="konsole"] resize set width 30 ppt
