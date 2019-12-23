@@ -186,8 +186,9 @@ bindsym $mod+r mode "resize"
 
 hide_edge_borders both
 default_border pixel 1
+focus_on_window_activation focus
 
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+exec_always --no-startup-id polybar-restart
 exec_always --no-startup-id numlockx on
 
 # Autostart applications
@@ -199,8 +200,6 @@ exec --no-startup-id redshift-gtk
 exec --no-startup-id feh --bg-scale ~/wallpaper.png
 exec --no-startup-id sp-nowplaying
 exec --no-startup-id ckb-next -b
-
-
 exec compton
 
 # Media player controls
