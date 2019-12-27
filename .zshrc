@@ -105,8 +105,8 @@ setopt complete_aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-source .rc_local
-source .config/powerlevel9k
+source $HOME/.rc_local
+source $HOME/.config/powerlevel9k
 
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir vcs)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=()

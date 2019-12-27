@@ -1,0 +1,14 @@
+#!/bin/bash
+
+PIDS=$(pidof redshift)
+
+if [[ -n $PIDS ]]; then
+	echo "Killing redshift-gtk"
+	killall redshift-gtk
+	while pgrep -u $UID -x redshift-gtk >/dev/null; do sleep 1; done
+	echo "Killed redshift-gtk"
+else
+	echo "Starting redshift-gtk"
+	redshift-gtk
+fi
+

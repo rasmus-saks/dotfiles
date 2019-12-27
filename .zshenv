@@ -1,1 +1,1 @@
-source .env_local
+source $HOME/.env_local
