@@ -183,7 +183,7 @@ bindsym $mod+r mode "resize"
 bar {
 	status_command SCRIPT_DIR=~/i3blocks-commands i3blocks
 	tray_output primary
-	position top
+#	position top
 }
 
 hide_edge_borders both
@@ -204,7 +204,7 @@ exec --no-startup-id feh --bg-scale ~/wallpaper.png
 exec --no-startup-id sp-nowplaying
 exec --no-startup-id ckb-next -b
 exec --no-startup-id setxkbmap -model pc104 -layout ee,us -variant ,, -option grp:win_space_toggle,grp_led:scroll
-exec compton
+exec --no-startup-id compton
 
 # Media player controls
 bindsym XF86AudioPlay exec playerctl play-pause
