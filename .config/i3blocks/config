@@ -30,9 +30,8 @@ separator_block_width=15
 markup=none
 
 [mediaplayer]
-command=$SCRIPT_DIR/mediaplayer/mediaplayer
-instance=spotify
-interval=5
+command=sp-nowplaying
+interval=persist
 #signal=10
 
 [volume]

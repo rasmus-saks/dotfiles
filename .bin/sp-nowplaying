@@ -5,8 +5,7 @@ FILE=$HOME/.spotify
 touch $FILE
 while true; do
   NOW_PLAYING=$(playerctl metadata --format "{{ artist }} - {{ title }}")
-  echo $NOW_PLAYING > $FILE
-  echo "Now playing: $NOW_PLAYING"
+  echo $NOW_PLAYING | tee $FILE
   sleep 1
 done
 rm $FILE
