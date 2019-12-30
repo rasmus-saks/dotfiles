@@ -183,7 +183,7 @@ bindsym $mod+r mode "resize"
 bar {
 	status_command SCRIPT_DIR=~/i3blocks-commands i3blocks
 	tray_output primary
-#	position top
+	position top
 }
 
 hide_edge_borders both
