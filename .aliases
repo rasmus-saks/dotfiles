@@ -2,5 +2,7 @@
 
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias m=micro
-#alias nano=micro
 alias cfi="micro $HOME/.config/i3/config"
+alias move=mv
+alias protontricks-flat='flatpak run --command=protontricks com.valvesoftware.Steam --no-runtime'
+alias nano=micro
