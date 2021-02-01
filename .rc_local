@@ -2,3 +2,12 @@
 
 export LANG=en_US.UTF-8
 source $HOME/.aliases
+
+
+if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
+  exec tmux new-session -A -s main
+fi
+
+if command -v most > /dev/null 2>&1; then
+    export PAGER="most"
+fi

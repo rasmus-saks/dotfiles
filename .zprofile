@@ -1,1 +1,1 @@
-source .profile_local
+source $HOME/.profile_local
