@@ -1,4 +1,7 @@
 # Dotfiles
+
+[Guide](https://www.atlassian.com/git/tutorials/dotfiles)
+
 Requires
 * i3
 * zsh, [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)
